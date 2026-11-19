@@ -1,0 +1,821 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>760</width>
+    <height>920</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Expense Manager</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="mainVerticalLayout">
+    <property name="spacing">
+     <number>12</number>
+    </property>
+    <property name="leftMargin">
+     <number>16</number>
+    </property>
+    <property name="topMargin">
+     <number>16</number>
+    </property>
+    <property name="rightMargin">
+     <number>16</number>
+    </property>
+    <property name="bottomMargin">
+     <number>16</number>
+    </property>
+    <item>
+     <widget class="QTabWidget" name="page_finansdurum">
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <!-- ==================== TAB 1: ADD TRANSACTION ==================== -->
+      <widget class="QWidget" name="page_transaction">
+       <attribute name="title">
+        <string>Add Transaction</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="txOuterLayout">
+        <property name="spacing">
+         <number>14</number>
+        </property>
+        <property name="leftMargin">
+         <number>36</number>
+        </property>
+        <property name="topMargin">
+         <number>20</number>
+        </property>
+        <property name="rightMargin">
+         <number>36</number>
+        </property>
+        <property name="bottomMargin">
+         <number>20</number>
+        </property>
+        <item>
+         <widget class="QLabel" name="label_tx_header">
+          <property name="text">
+           <string>New Financial Transaction</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_tx_subheader">
+          <property name="text">
+           <string>Record an expense, log income, or transfer funds to pay off credit card debt.</string>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="groupislem_turu">
+          <property name="title">
+           <string>Transaction Type</string>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_6">
+           <property name="spacing">
+            <number>16</number>
+           </property>
+           <item>
+            <widget class="QRadioButton" name="buton_expense">
+             <property name="text">
+              <string>Expense</string>
+             </property>
+             <property name="checked">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="buton_income">
+             <property name="text">
+              <string>Income</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="buton_transfer">
+             <property name="text">
+              <string>Transfer (Debt Payment)</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="tutar_3">
+          <property name="text">
+           <string>Amount (₺)</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="line_amount">
+          <property name="placeholderText">
+           <string>Enter amount (e.g. 1250.00)</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_3">
+          <property name="text">
+           <string>Transaction Date</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QDateEdit" name="line_date">
+          <property name="calendarPopup">
+           <bool>true</bool>
+          </property>
+          <property name="displayFormat">
+           <string>dd.MM.yyyy</string>
+          </property>
+         </widget>
+        </item>
+        <!-- Single Account selector container (used for Expense and Income) -->
+        <item>
+         <widget class="QWidget" name="widget_single_account" native="true">
+          <layout class="QVBoxLayout" name="singleAccLayout">
+           <property name="spacing">
+            <number>6</number>
+           </property>
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QLabel" name="label_account_title">
+             <property name="text">
+              <string>Account / Credit Card</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QComboBox" name="combo_account"/>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <!-- Transfer From -> To Account selector container (used for Transfer) -->
+        <item>
+         <widget class="QWidget" name="widget_transfer_accounts" native="true">
+          <layout class="QVBoxLayout" name="transferAccLayout">
+           <property name="spacing">
+            <number>8</number>
+           </property>
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QLabel" name="label_from_account">
+             <property name="text">
+              <string>From Account (Source Cash / Bank)</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QComboBox" name="combo_from_account"/>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_to_account">
+             <property name="text">
+              <string>To Account / Credit Card (Destination)</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QComboBox" name="combo_to_account"/>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <!-- Installments container (shown dynamically when Expense + Credit Card is selected) -->
+        <item>
+         <widget class="QWidget" name="widget_installments" native="true">
+          <layout class="QVBoxLayout" name="installmentsLayout">
+           <property name="spacing">
+            <number>6</number>
+           </property>
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QLabel" name="label_installments">
+             <property name="text">
+              <string>Installments (1 = Single Payment)</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QSpinBox" name="spin_installments">
+             <property name="minimum">
+              <number>1</number>
+             </property>
+             <property name="maximum">
+              <number>36</number>
+             </property>
+             <property name="value">
+              <number>1</number>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_installment_preview">
+             <property name="text">
+              <string/>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_2">
+          <property name="text">
+           <string>Category</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QComboBox" name="combo_category"/>
+        </item>
+        <item>
+         <widget class="QLabel" name="line_description">
+          <property name="text">
+           <string>Description</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="line_descr">
+          <property name="placeholderText">
+           <string>Optional note or merchant name...</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="verticalSpacer_tx">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Expanding</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QPushButton" name="buton_save">
+          <property name="text">
+           <string>Save Transaction</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <!-- ==================== TAB 2: DASHBOARD ==================== -->
+      <widget class="QWidget" name="page_dash">
+       <attribute name="title">
+        <string>Dashboard</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="dashMainLayout">
+        <property name="spacing">
+         <number>12</number>
+        </property>
+        <property name="leftMargin">
+         <number>16</number>
+        </property>
+        <property name="topMargin">
+         <number>16</number>
+        </property>
+        <property name="rightMargin">
+         <number>16</number>
+        </property>
+        <property name="bottomMargin">
+         <number>16</number>
+        </property>
+        <!-- Top Financial Summary Cards -->
+        <item>
+         <widget class="QFrame" name="frame_summary_metrics">
+          <layout class="QHBoxLayout" name="metricsRowLayout">
+           <property name="spacing">
+            <number>12</number>
+           </property>
+           <item>
+            <widget class="QFrame" name="card_liquid_balance">
+             <layout class="QVBoxLayout" name="liquidColLayout">
+              <item>
+               <widget class="QLabel" name="label_liquid_title">
+                <property name="text">
+                 <string>TOTAL LIQUID CASH / BANK</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_liquid_value">
+                <property name="text">
+                 <string>0.00 ₺</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_liquid_sub">
+                <property name="text">
+                 <string>Unaffected by unpaid card debt</string>
+                </property>
+                <property name="wordWrap">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QFrame" name="card_total_income">
+             <layout class="QVBoxLayout" name="incomeColLayout">
+              <item>
+               <widget class="QLabel" name="label_income_title">
+                <property name="text">
+                 <string>TOTAL INCOME</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_income_value">
+                <property name="text">
+                 <string>0.00 ₺</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_income_sub">
+                <property name="text">
+                 <string>Cumulative logged income</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QFrame" name="card_total_expense">
+             <layout class="QVBoxLayout" name="expenseColLayout">
+              <item>
+               <widget class="QLabel" name="label_expense_title">
+                <property name="text">
+                 <string>TOTAL EXPENSES</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_expense_value">
+                <property name="text">
+                 <string>0.00 ₺</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_expense_sub">
+                <property name="text">
+                 <string>Excludes debt transfers</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <!-- Credit Cards Summary Section -->
+        <item>
+         <widget class="QGroupBox" name="group_credit_cards_overview">
+          <property name="title">
+           <string>Credit Cards &amp; Statement Overview</string>
+          </property>
+          <layout class="QVBoxLayout" name="cardsOverviewOuterLayout">
+           <item>
+            <widget class="QScrollArea" name="scroll_credit_cards">
+             <property name="widgetResizable">
+              <bool>true</bool>
+             </property>
+             <property name="maximumHeight">
+              <number>230</number>
+             </property>
+             <widget class="QWidget" name="scroll_credit_cards_contents">
+              <layout class="QVBoxLayout" name="creditCardsContainerLayout">
+               <property name="spacing">
+                <number>10</number>
+               </property>
+              </layout>
+             </widget>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <!-- Search & Filter Controls -->
+        <item>
+         <layout class="QHBoxLayout" name="searchFilterLayout">
+          <item>
+           <widget class="QLabel" name="label">
+            <property name="text">
+             <string>Search:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="line_search">
+            <property name="placeholderText">
+             <string>Filter by description, category, account, statement period, or amount...</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout">
+          <item>
+           <widget class="QRadioButton" name="radio_showall">
+            <property name="text">
+             <string>Show All</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="radio_income">
+            <property name="text">
+             <string>Incomes</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="radio_expense">
+            <property name="text">
+             <string>Expenses</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="radio_transfer">
+            <property name="text">
+             <string>Transfers</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <!-- Transactions Table -->
+        <item>
+         <widget class="QTableWidget" name="table_transaction">
+          <column>
+           <property name="text">
+            <string>AMOUNT</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>CATEGORY</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>DESCRIPTION</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>ACCOUNT</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>DATE</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>PERIOD / STATUS</string>
+           </property>
+          </column>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="buton_reset">
+          <property name="text">
+           <string>Factory Reset Transactions</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <!-- ==================== TAB 3: ACCOUNTS / CARDS ==================== -->
+      <widget class="QWidget" name="page_accounts">
+       <attribute name="title">
+        <string>Accounts / Cards</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="accountsTabLayout">
+        <property name="spacing">
+         <number>14</number>
+        </property>
+        <property name="leftMargin">
+         <number>30</number>
+        </property>
+        <property name="topMargin">
+         <number>18</number>
+        </property>
+        <property name="rightMargin">
+         <number>30</number>
+        </property>
+        <property name="bottomMargin">
+         <number>18</number>
+        </property>
+        <item>
+         <widget class="QLabel" name="label_acc_header">
+          <property name="text">
+           <string>Manage Accounts &amp; Credit Cards</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="group_add_account_type">
+          <property name="title">
+           <string>Select Account Type to Create</string>
+          </property>
+          <layout class="QHBoxLayout" name="accTypeRadioLayout">
+           <item>
+            <widget class="QRadioButton" name="radio_add_cash_account">
+             <property name="text">
+              <string>Checking / Cash Account</string>
+             </property>
+             <property name="checked">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="radio_add_credit_card">
+             <property name="text">
+              <string>Credit Card</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <!-- Form Fields for Adding Account or Credit Card -->
+        <item>
+         <widget class="QFrame" name="frame_account_form">
+          <layout class="QVBoxLayout" name="accFormLayout">
+           <property name="spacing">
+            <number>10</number>
+           </property>
+           <item>
+            <widget class="QLabel" name="label_new_acc_name">
+             <property name="text">
+              <string>Account Name</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="line_new_acc_name">
+             <property name="placeholderText">
+              <string>e.g. Main Checking, Wallet Cash, Bonus Platinum...</string>
+             </property>
+            </widget>
+           </item>
+           <!-- Checking/Cash Specific Fields -->
+           <item>
+            <widget class="QWidget" name="widget_cash_fields" native="true">
+             <layout class="QVBoxLayout" name="cashFieldsLayout">
+              <property name="leftMargin">
+               <number>0</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="label_initial_balance">
+                <property name="text">
+                 <string>Initial Balance (₺)</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="line_initial_balance">
+                <property name="text">
+                 <string>0.00</string>
+                </property>
+                <property name="placeholderText">
+                 <string>Starting balance (e.g. 5000.00)</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <!-- Credit Card Specific Fields -->
+           <item>
+            <widget class="QWidget" name="widget_card_fields" native="true">
+             <layout class="QVBoxLayout" name="cardFieldsLayout">
+              <property name="leftMargin">
+               <number>0</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="label_card_limit">
+                <property name="text">
+                 <string>Total Card Limit (₺)</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="line_card_limit">
+                <property name="placeholderText">
+                 <string>Total credit limit (e.g. 50000.00)</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="cardDaysRowLayout">
+                <property name="spacing">
+                 <number>16</number>
+                </property>
+                <item>
+                 <layout class="QVBoxLayout" name="closingDayCol">
+                  <item>
+                   <widget class="QLabel" name="label_closing_day">
+                    <property name="text">
+                     <string>Statement Closing Day (1-31)</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QSpinBox" name="spin_closing_day">
+                    <property name="minimum">
+                     <number>1</number>
+                    </property>
+                    <property name="maximum">
+                     <number>31</number>
+                    </property>
+                    <property name="value">
+                     <number>15</number>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QVBoxLayout" name="dueDayCol">
+                  <item>
+                   <widget class="QLabel" name="label_due_day">
+                    <property name="text">
+                     <string>Payment Due Day (1-31)</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QSpinBox" name="spin_due_day">
+                    <property name="minimum">
+                     <number>1</number>
+                    </property>
+                    <property name="maximum">
+                     <number>31</number>
+                    </property>
+                    <property name="value">
+                     <number>25</number>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="buton_add_account">
+             <property name="text">
+              <string>Add Account</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <!-- Existing Accounts & Cards Overview Table -->
+        <item>
+         <widget class="QLabel" name="label_existing_accounts">
+          <property name="text">
+           <string>Configured Accounts &amp; Credit Cards</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QTableWidget" name="table_accounts">
+          <column>
+           <property name="text">
+            <string>NAME</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>TYPE</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>BALANCE / AVAIL. LIMIT</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>INIT. BAL / TOTAL LIMIT</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>STATEMENT / DUE DAY</string>
+           </property>
+          </column>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="buton_delete_account">
+          <property name="text">
+           <string>Delete Selected Account / Card</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

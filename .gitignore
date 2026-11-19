@@ -1,0 +1,21 @@
+# IDE and Build Artifacts
+.idea/
+.vscode/
+__pycache__/
+*.py[cod]
+build/
+dist/
+*.spec
+
+# Executables
+*.exe
+
+# Local Database and P2P Synchronization Data Directory
+data/
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+
+# Custom Icons
+*.ico
